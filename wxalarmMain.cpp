@@ -45,7 +45,6 @@ wxString wxbuildinfo(wxbuildinfoformat format)
     return wxbuild;
 }
 
-
 wxalarmFrame::wxalarmFrame(wxFrame *frame)
     : GUIFrame(frame)
 {
@@ -55,6 +54,9 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
 #endif
     myTary = new myWxTary(this);
     myTary->SetIcon(wxICON(aaaa));
+
+    //m_timer = new wxTimer(this);
+    m_timer.Connect(TIMER_ID,  wxCommandEventHandler( wxalarmFrame::OnTimer ), NULL, this);
 }
 
 wxalarmFrame::~wxalarmFrame()
@@ -73,6 +75,30 @@ void wxalarmFrame::OnQuit(wxCommandEvent &event)
 }
 
 void wxalarmFrame::OnAbout(wxCommandEvent &event)
+{
+    wxString msg = wxbuildinfo(long_f);
+    wxMessageBox(msg, _("Welcome to..."));
+}
+
+void wxalarmFrame::clickCommit(wxCommandEvent &event)
+{
+    //wxString msg = wxbuildinfo(long_f);
+    //wxMessageBox(msg, _("clickCommit..."));
+
+    int m_time = this->m_spinCtrlTimeNumber->GetValue();
+
+    wxString textEscapeTime;
+
+    textEscapeTime.Printf(_("%i"), m_time);
+
+    this->m_staticTextEscapeTime->SetLabel( textEscapeTime );
+
+    //this->m_timer->Start(m_time * 60);
+    m_timer.Start(m_time * 60);
+
+}
+
+void wxalarmFrame::OnTimer(wxTimerEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));
