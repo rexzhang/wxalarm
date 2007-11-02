@@ -7,13 +7,12 @@
 // RCS-ID:
 // Copyright:   (c) 200x Rex Zhang
 // Licence:     GNU General Public License (GPL) version 2
-/////////////////////////////////////////////////////////////////////////////#include "myWxTary.h"
+/////////////////////////////////////////////////////////////////////////////
 
 #include <wx/menu.h>
+#include "myWxTary.h"
 
 #include "wxalarmMain.h"
-
-#include "myWxTary.h"
 
 DEFINE_EVENT_TYPE( PU_EXIT )
 
@@ -40,12 +39,14 @@ myWxTary::~myWxTary()
 wxMenu* myWxTary::CreatePopupMenu()
 {
     wxMenu * menu = new wxMenu;
-    wxMenuItem *mTiem;
+    wxMenuItem *mItem;
 
     menu->Append(1, _("test"));
 
-    mTiem = new wxMenuItem( menu, PU_EXIT, _("quit"), wxT( "quit wxalarm" ) );
-    menu->Append( mTiem );
+    menu->AppendSeparator();
+
+    mItem = new wxMenuItem( menu, PU_EXIT, _("quit"), wxT( "quit wxalarm" ) );
+    menu->Append( mItem );
     //menu->Append(2, _("quit"));
 
     return menu;
@@ -54,13 +55,22 @@ wxMenu* myWxTary::CreatePopupMenu()
 
 void myWxTary::OnMenuQuit(  wxCommandEvent& )
 {
-    wxLogWarning( _("OnMenuQuit") );
+    //wxLogWarning( _("OnMenuQuit") );
     m_pMainwin->Destroy();
 }
 
 void myWxTary::OnLeftButtonClick( wxTaskBarIconEvent& event )
 {
-    wxLogWarning( _("OnLeftButtonClick") );
+    //wxLogWarning( _("OnLeftButtonClick") );
+
+    if( m_pMainwin->IsShown() )
+    {
+        m_pMainwin->Hide();
+    }
+    else
+    {
+        m_pMainwin->Show();
+    }
 
     event.Skip();
 }
