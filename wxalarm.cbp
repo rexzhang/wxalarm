@@ -67,6 +67,8 @@
 		<Unit filename="WxWizFrame.fbp" />
 		<Unit filename="myWxTary.cpp" />
 		<Unit filename="myWxTary.h" />
+		<Unit filename="myWxTimer.cpp" />
+		<Unit filename="myWxTimer.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
