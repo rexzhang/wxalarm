@@ -17,9 +17,12 @@
 
 #include "wxalarmMain.h"
 
+
 //helper functions
-enum wxbuildinfoformat {
-    short_f, long_f };
+enum wxbuildinfoformat
+{
+    short_f, long_f
+};
 
 wxString wxbuildinfo(wxbuildinfoformat format)
 {
@@ -45,24 +48,33 @@ wxString wxbuildinfo(wxbuildinfoformat format)
     return wxbuild;
 }
 
+BEGIN_EVENT_TABLE(wxalarmFrame, wxFrame)
+    EVT_TIMER(1, wxalarmFrame::OnTimer)
+END_EVENT_TABLE()
+
 wxalarmFrame::wxalarmFrame(wxFrame *frame)
-    : GUIFrame(frame)
+        : GUIFrame(frame)
 {
 #if wxUSE_STATUSBAR
     statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
     statusBar->SetStatusText(wxbuildinfo(short_f), 1);
 #endif
-    myTary = new myWxTary(this);
-    myTary->SetIcon(wxICON(aaaa));
+    m_tary = new myWxTary(this);
+    m_tary->SetIcon(wxICON(aaaa));
 
-    //m_timer = new wxTimer(this);
-    m_timer.Connect(TIMER_ID,  wxCommandEventHandler( wxalarmFrame::OnTimer ), NULL, this);
+    m_timer = new wxTimer(this, 1);
+    //m_timer = new wxTimer(NULL, this->OnTimer());
+    //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );//, NULL, this);
+    //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );
+    //m_timer.Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ), NULL, this);
 }
 
 wxalarmFrame::~wxalarmFrame()
 {
-    delete myTary;
+    delete m_tary;
+    delete m_timer;
 }
+
 
 void wxalarmFrame::OnClose(wxCloseEvent &event)
 {
@@ -93,11 +105,16 @@ void wxalarmFrame::clickCommit(wxCommandEvent &event)
 
     this->m_staticTextEscapeTime->SetLabel( textEscapeTime );
 
-    //this->m_timer->Start(m_time * 60);
-    m_timer.Start(m_time * 60);
+    if ( !m_timer->Start( m_time * 1000, wxTIMER_ONE_SHOT ) )
+        //if( !m_timer.Start(m_time * 1000) )
+    {
+        wxString msg = wxbuildinfo(long_f);
+        wxMessageBox(msg, _("if( !m_timer->Start(m_time * 100) )"));
+    }
 
 }
 
+//void wxalarmFrame::OnTimer(wxTimerEvent& event)
 void wxalarmFrame::OnTimer(wxTimerEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);

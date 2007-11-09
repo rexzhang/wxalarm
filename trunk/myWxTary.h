@@ -5,7 +5,7 @@
 // Modified by:
 // Created:     2007-11-01
 // RCS-ID:
-// Copyright:   (c) 200x Rex Zhang
+// Copyright:   (c) 2007 Rex Zhang
 // Licence:     GNU General Public License (GPL) version 2
 /////////////////////////////////////////////////////////////////////////////
 #ifndef MYWXTARY_H

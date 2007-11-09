@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Sep  6 2007)
+// C++ code generated with wxFormBuilder (version Sep 26 2007)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -19,7 +19,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-GUIFrame::GUIFrame( wxWindow* parent, int id, wxString title, wxPoint pos, wxSize size, int style ) : wxFrame( parent, id, title, pos, size, style )
+GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
@@ -56,9 +56,9 @@ GUIFrame::GUIFrame( wxWindow* parent, int id, wxString title, wxPoint pos, wxSiz
 	m_staticText5->Wrap( -1 );
 	gSizer1->Add( m_staticText5, 0, wxALL|wxALIGN_RIGHT, 5 );
 	
-	m_staticText6 = new wxStaticText( m_panel1, wxID_ANY, wxT("20：20：20"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6->Wrap( -1 );
-	gSizer1->Add( m_staticText6, 0, wxALL, 5 );
+	m_staticTextStopTime = new wxStaticText( m_panel1, wxID_ANY, wxT("20：20：20"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextStopTime->Wrap( -1 );
+	gSizer1->Add( m_staticTextStopTime, 0, wxALL, 5 );
 	
 	m_staticText7 = new wxStaticText( m_panel1, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
@@ -67,7 +67,7 @@ GUIFrame::GUIFrame( wxWindow* parent, int id, wxString title, wxPoint pos, wxSiz
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_spinCtrlTimeNumber = new wxSpinCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 60, 0);
+	m_spinCtrlTimeNumber = new wxSpinCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 60, 0 );
 	bSizer2->Add( m_spinCtrlTimeNumber, 0, wxALL, 5 );
 	
 	wxString m_choice1Choices[] = { wxT("分"), wxT("小时") };
