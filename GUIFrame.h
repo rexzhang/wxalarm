@@ -18,11 +18,14 @@
 #include <wx/settings.h>
 #include <wx/statusbr.h>
 #include <wx/stattext.h>
+#include <wx/combobox.h>
+#include <wx/sizer.h>
 #include <wx/spinctrl.h>
 #include <wx/choice.h>
-#include <wx/sizer.h>
-#include <wx/panel.h>
+#include <wx/checkbox.h>
+#include <wx/statline.h>
 #include <wx/button.h>
+#include <wx/panel.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -43,24 +46,31 @@ class GUIFrame : public wxFrame
 		wxMenu* helpMenu;
 		wxStatusBar* statusBar;
 		wxPanel* m_panel1;
+		wxStaticText* m_staticText6;
+		wxComboBox* m_comboBox1;
+		wxStaticText* m_staticText7;
+		wxSpinCtrl* m_spinCtrlTimeNumber;
+		wxStaticText* m_staticText71;
+		wxChoice* m_choice1;
+		wxCheckBox* m_checkBox1;
+		wxStaticLine* m_staticline1;
 		wxStaticText* m_staticText2;
 		wxStaticText* m_staticTextEscapeTime;
 		wxStaticText* m_staticText5;
 		wxStaticText* m_staticTextStopTime;
-		wxStaticText* m_staticText7;
-		wxSpinCtrl* m_spinCtrlTimeNumber;
-		wxChoice* m_choice1;
+		wxButton* m_buttonQuit;
 		wxButton* m_buttonCommit;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCloseEvent& event ){ event.Skip(); }
 		virtual void OnQuit( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnAbout( wxCommandEvent& event ){ event.Skip(); }
+		virtual void clickQuit( wxCommandEvent& event ){ event.Skip(); }
 		virtual void clickCommit( wxCommandEvent& event ){ event.Skip(); }
 		
 	
 	public:
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxWidgets Application Template"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,293 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 	
 };
 
