@@ -55,16 +55,16 @@ END_EVENT_TABLE()
 wxalarmFrame::wxalarmFrame(wxFrame *frame)
         : GUIFrame(frame)
 {
+/*
 #if wxUSE_STATUSBAR
     statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
     statusBar->SetStatusText(wxbuildinfo(short_f), 1);
 #endif
+*/
     m_tary = new myWxTary(this);
     m_tary->SetIcon(wxICON(aaaa));
 
     m_timer = new wxTimer(this, 1);
-    //m_timer = new wxTimer(NULL, this->OnTimer());
-    //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );//, NULL, this);
     //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );
     //m_timer.Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ), NULL, this);
 }
@@ -88,15 +88,13 @@ void wxalarmFrame::OnQuit(wxCommandEvent &event)
 
 void wxalarmFrame::OnAbout(wxCommandEvent &event)
 {
-    wxString msg = wxbuildinfo(long_f);
+    //wxString msg = wxbuildinfo(long_f);
+    wxString msg = _("wxAlarm Alapha");
     wxMessageBox(msg, _("Welcome to..."));
 }
 
 void wxalarmFrame::clickCommit(wxCommandEvent &event)
 {
-    //wxString msg = wxbuildinfo(long_f);
-    //wxMessageBox(msg, _("clickCommit..."));
-
     int m_time = this->m_spinCtrlTimeNumber->GetValue();
 
     wxString textEscapeTime;
@@ -105,18 +103,23 @@ void wxalarmFrame::clickCommit(wxCommandEvent &event)
 
     this->m_staticTextEscapeTime->SetLabel( textEscapeTime );
 
-    if ( !m_timer->Start( m_time * 1000, wxTIMER_ONE_SHOT ) )
+    if ( !m_timer->Start( m_time * 60 * 1000, wxTIMER_ONE_SHOT ) )
         //if( !m_timer.Start(m_time * 1000) )
     {
         wxString msg = wxbuildinfo(long_f);
         wxMessageBox(msg, _("if( !m_timer->Start(m_time * 100) )"));
     }
 
+    this->Hide();
 }
 
-//void wxalarmFrame::OnTimer(wxTimerEvent& event)
 void wxalarmFrame::OnTimer(wxTimerEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, _("Welcome to..."));
+    wxMessageBox(msg, _("void wxalarmFrame::OnTimer(wxTimerEvent& event)"));
+}
+
+void wxalarmFrame::clickQuit( wxCommandEvent& event )
+{
+    Destroy();
 }

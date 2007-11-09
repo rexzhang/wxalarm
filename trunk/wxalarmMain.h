@@ -29,15 +29,14 @@ class wxalarmFrame: public GUIFrame
         wxTimer* m_timer;
 
     private:
-        //wxTimer m_timer;
-
         virtual void OnClose(wxCloseEvent& event);
         virtual void OnQuit(wxCommandEvent& event);
         virtual void OnAbout(wxCommandEvent& event);
+
         virtual void clickCommit(wxCommandEvent& event);
+        virtual void clickQuit( wxCommandEvent& event );
 
         virtual void OnTimer(wxTimerEvent& event);
-        //virtual void OnTimer(wxCommandEvent& event);
 
         DECLARE_EVENT_TABLE()
 };
