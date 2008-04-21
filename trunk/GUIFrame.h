@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Sep 26 2007)
+// C++ code generated with wxFormBuilder (version Apr 16 2008)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -11,6 +11,7 @@
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/menu.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
@@ -71,6 +72,7 @@ class GUIFrame : public wxFrame
 	
 	public:
 		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,293 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		~GUIFrame();
 	
 };
 
