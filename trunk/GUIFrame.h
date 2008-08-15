@@ -25,6 +25,7 @@
 #include <wx/choice.h>
 #include <wx/checkbox.h>
 #include <wx/statline.h>
+#include <wx/listctrl.h>
 #include <wx/button.h>
 #include <wx/panel.h>
 #include <wx/frame.h>
@@ -59,6 +60,7 @@ class GUIFrame : public wxFrame
 		wxStaticText* m_staticTextEscapeTime;
 		wxStaticText* m_staticText5;
 		wxStaticText* m_staticTextStopTime;
+		wxListCtrl* m_listCtrl3;
 		wxButton* m_buttonQuit;
 		wxButton* m_buttonCommit;
 		
@@ -71,7 +73,7 @@ class GUIFrame : public wxFrame
 		
 	
 	public:
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,293 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,667 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~GUIFrame();
 	
 };
