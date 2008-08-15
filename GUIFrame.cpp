@@ -58,7 +58,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_comboBox1 = new wxComboBox( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 ); 
 	bSizerAlarmText->Add( m_comboBox1, 1, wxALL|wxEXPAND, 5 );
 	
-	bSizer6->Add( bSizerAlarmText, 1, wxEXPAND, 5 );
+	bSizer6->Add( bSizerAlarmText, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizerInputA;
 	bSizerInputA = new wxBoxSizer( wxVERTICAL );
@@ -140,6 +140,14 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizerShowTime->Add( m_staticTextStopTime, 0, wxALL, 5 );
 	
 	bSizer6->Add( bSizerShowTime, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer14;
+	bSizer14 = new wxBoxSizer( wxVERTICAL );
+	
+	m_listCtrl3 = new wxListCtrl( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_LIST|wxLC_SINGLE_SEL|wxLC_VRULES );
+	bSizer14->Add( m_listCtrl3, 1, wxALL|wxEXPAND, 5 );
+	
+	bSizer6->Add( bSizer14, 1, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer13;
 	bSizer13 = new wxBoxSizer( wxVERTICAL );

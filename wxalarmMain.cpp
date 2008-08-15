@@ -67,6 +67,15 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     m_timer = new wxTimer(this, 1);
     //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );
     //m_timer.Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ), NULL, this);
+
+    m_listCtrl3->InsertColumn(0, _T("Animal"));
+    m_listCtrl3->InsertColumn(1, _T("BBBBBB"));
+
+    for ( int i = 0; i < 10; i++ )
+    {
+        m_listCtrl3->InsertItem(i, wxString::Format(_T("Item %d ssssssssssssssssssssssssssssssssssss"), i));
+    }
+    m_listCtrl3->InsertColumn(0, _T("Animal"));
 }
 
 wxalarmFrame::~wxalarmFrame()
