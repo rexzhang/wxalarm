@@ -60,7 +60,7 @@ class GUIFrame : public wxFrame
 		wxStaticText* m_staticTextEscapeTime;
 		wxStaticText* m_staticText5;
 		wxStaticText* m_staticTextStopTime;
-		wxListCtrl* m_listCtrl3;
+		wxListCtrl* m_listCtrl;
 		wxButton* m_buttonQuit;
 		wxButton* m_buttonCommit;
 		

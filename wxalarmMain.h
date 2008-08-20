@@ -20,25 +20,25 @@
 
 class wxalarmFrame: public GUIFrame
 {
-    public:
-        wxalarmFrame(wxFrame *frame);
-        ~wxalarmFrame();
+public:
+    wxalarmFrame(wxFrame *frame);
+    ~wxalarmFrame();
 
-    protected:
-        myWxTary* m_tary;
-        wxTimer* m_timer;
+protected:
+    myWxTary* m_tary;
+    wxTimer* m_timer;
 
-    private:
-        virtual void OnClose(wxCloseEvent& event);
-        virtual void OnQuit(wxCommandEvent& event);
-        virtual void OnAbout(wxCommandEvent& event);
+private:
+    virtual void OnClose(wxCloseEvent& event);
+    virtual void OnQuit(wxCommandEvent& event);
+    virtual void OnAbout(wxCommandEvent& event);
 
-        virtual void clickCommit(wxCommandEvent& event);
-        virtual void clickQuit( wxCommandEvent& event );
+    virtual void clickCommit(wxCommandEvent& event);
+    virtual void clickQuit( wxCommandEvent& event );
 
-        virtual void OnTimer(wxTimerEvent& event);
+    virtual void OnTimer(wxTimerEvent& event);
 
-        DECLARE_EVENT_TABLE()
+    DECLARE_EVENT_TABLE()
 };
 
 #endif // WXALARMMAIN_H
