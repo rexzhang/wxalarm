@@ -55,12 +55,12 @@ END_EVENT_TABLE()
 wxalarmFrame::wxalarmFrame(wxFrame *frame)
         : GUIFrame(frame)
 {
-/*
-#if wxUSE_STATUSBAR
-    statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
-    statusBar->SetStatusText(wxbuildinfo(short_f), 1);
-#endif
-*/
+    /*
+    #if wxUSE_STATUSBAR
+        statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
+        statusBar->SetStatusText(wxbuildinfo(short_f), 1);
+    #endif
+    */
     m_tary = new myWxTary(this);
     m_tary->SetIcon(wxICON(aaaa));
 
@@ -68,14 +68,44 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );
     //m_timer.Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ), NULL, this);
 
-    m_listCtrl3->InsertColumn(0, _T("Animal"));
-    m_listCtrl3->InsertColumn(1, _T("BBBBBB"));
+    wxListItem itemCol;
 
-    for ( int i = 0; i < 10; i++ )
+    itemCol.SetText(_T("剩余时间"));
+    m_listCtrl->InsertColumn(0, itemCol);
+
+    //m_listCtrl->InsertItem(0, wxString::Format(_T("aaa ")));
+
+    itemCol.SetText(_T("描述"));
+    m_listCtrl->InsertColumn(1, itemCol);
+
+    itemCol.SetText(_T("循环？"));
+    m_listCtrl->InsertColumn(2, itemCol);
+
+    for ( int i = 0; i < 20; i++ )
     {
-        m_listCtrl3->InsertItem(i, wxString::Format(_T("Item %d ssssssssssssssssssssssssssssssssssss"), i));
+        //m_listCtrl->InsertItemInReportView(i);
+        wxString buf;
+        buf.Printf(_T("This is item %d"), i);
+        long tmp = m_listCtrl->InsertItem(i, buf, 0);
+        m_listCtrl->SetItemData(tmp, i);
+
+        buf.Printf(_T("Col 1, item %d"), i);
+        m_listCtrl->SetItem(tmp, 1, buf);
+
+        buf.Printf(_T("Item %d in column 2"), i);
+        m_listCtrl->SetItem(tmp, 2, buf);
+
+
     }
-    m_listCtrl3->InsertColumn(0, _T("Animal"));
+    m_listCtrl->SetColumnWidth( 0, wxLIST_AUTOSIZE );
+    m_listCtrl->SetColumnWidth( 1, wxLIST_AUTOSIZE );
+    m_listCtrl->SetColumnWidth( 2, wxLIST_AUTOSIZE );
+    //m_listCtrl->InsertItem(1, wxString::Format(_T("bbb ")));
+
+    /*
+       m_listCtrl->InsertColumn(3, _T("到期时间"));
+        m_listCtrl->InsertColumn(4, _T("其他"));
+    */
 }
 
 wxalarmFrame::~wxalarmFrame()
@@ -132,3 +162,6 @@ void wxalarmFrame::clickQuit( wxCommandEvent& event )
 {
     Destroy();
 }
+
+
+

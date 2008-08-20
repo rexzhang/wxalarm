@@ -144,8 +144,8 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer14;
 	bSizer14 = new wxBoxSizer( wxVERTICAL );
 	
-	m_listCtrl3 = new wxListCtrl( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_LIST|wxLC_SINGLE_SEL|wxLC_VRULES );
-	bSizer14->Add( m_listCtrl3, 1, wxALL|wxEXPAND, 5 );
+	m_listCtrl = new wxListCtrl( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_VRULES );
+	bSizer14->Add( m_listCtrl, 1, wxALL|wxEXPAND, 5 );
 	
 	bSizer6->Add( bSizer14, 1, wxEXPAND, 5 );
 	
