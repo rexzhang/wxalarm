@@ -68,23 +68,30 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     //m_timer->Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ) );
     //m_timer.Connect( wxEVT_TIMER ,  wxTimerEventHandler( wxalarmFrame::OnTimer ), NULL, this);
 
+    //构造多列列表结构
     wxListItem itemCol;
 
     itemCol.SetText(_T("剩余时间"));
     m_listCtrl->InsertColumn(0, itemCol);
 
-    //m_listCtrl->InsertItem(0, wxString::Format(_T("aaa ")));
-
-    itemCol.SetText(_T("描述"));
+    itemCol.SetText(_T("提醒内容"));
     m_listCtrl->InsertColumn(1, itemCol);
 
     itemCol.SetText(_T("循环？"));
     m_listCtrl->InsertColumn(2, itemCol);
 
+    itemCol.SetText(_T("到期时间"));
+    m_listCtrl->InsertColumn(3, itemCol);
+
+    itemCol.SetText(_T("其他"));
+    m_listCtrl->InsertColumn(4, itemCol);
+
+    //向多列列表填充数据
     for ( int i = 0; i < 20; i++ )
     {
         //m_listCtrl->InsertItemInReportView(i);
         wxString buf;
+
         buf.Printf(_T("This is item %d"), i);
         long tmp = m_listCtrl->InsertItem(i, buf, 0);
         m_listCtrl->SetItemData(tmp, i);
@@ -94,18 +101,15 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
 
         buf.Printf(_T("Item %d in column 2"), i);
         m_listCtrl->SetItem(tmp, 2, buf);
-
-
     }
-    m_listCtrl->SetColumnWidth( 0, wxLIST_AUTOSIZE );
-    m_listCtrl->SetColumnWidth( 1, wxLIST_AUTOSIZE );
-    m_listCtrl->SetColumnWidth( 2, wxLIST_AUTOSIZE );
-    //m_listCtrl->InsertItem(1, wxString::Format(_T("bbb ")));
 
-    /*
-       m_listCtrl->InsertColumn(3, _T("到期时间"));
-        m_listCtrl->InsertColumn(4, _T("其他"));
-    */
+    //根据内容调整表内尺寸
+    m_listCtrl->SetColumnWidth(0, wxLIST_AUTOSIZE );
+    m_listCtrl->SetColumnWidth(1, wxLIST_AUTOSIZE );
+    m_listCtrl->SetColumnWidth(2, wxLIST_AUTOSIZE );
+    //m_listCtrl->SetColumnWidth(3, wxLIST_AUTOSIZE );
+    //m_listCtrl->SetColumnWidth(4, wxLIST_AUTOSIZE );
+
 }
 
 wxalarmFrame::~wxalarmFrame()
