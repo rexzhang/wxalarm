@@ -18,17 +18,19 @@
 #include <wx/colour.h>
 #include <wx/settings.h>
 #include <wx/statusbr.h>
-#include <wx/stattext.h>
-#include <wx/combobox.h>
 #include <wx/sizer.h>
-#include <wx/spinctrl.h>
-#include <wx/choice.h>
-#include <wx/checkbox.h>
 #include <wx/statline.h>
+#include <wx/stattext.h>
 #include <wx/listctrl.h>
 #include <wx/button.h>
 #include <wx/panel.h>
 #include <wx/frame.h>
+#include <wx/combobox.h>
+#include <wx/spinctrl.h>
+#include <wx/checkbox.h>
+#include <wx/choice.h>
+#include <wx/statbox.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -48,13 +50,6 @@ class GUIFrame : public wxFrame
 		wxMenu* helpMenu;
 		wxStatusBar* statusBar;
 		wxPanel* m_panel1;
-		wxStaticText* m_staticText6;
-		wxComboBox* m_comboBox1;
-		wxStaticText* m_staticText7;
-		wxSpinCtrl* m_spinCtrlTimeNumber;
-		wxStaticText* m_staticText71;
-		wxChoice* m_choice1;
-		wxCheckBox* m_checkBox1;
 		wxStaticLine* m_staticline1;
 		wxStaticText* m_staticText2;
 		wxStaticText* m_staticTextEscapeTime;
@@ -68,6 +63,8 @@ class GUIFrame : public wxFrame
 		virtual void OnClose( wxCloseEvent& event ){ event.Skip(); }
 		virtual void OnQuit( wxCommandEvent& event ){ event.Skip(); }
 		virtual void OnAbout( wxCommandEvent& event ){ event.Skip(); }
+		virtual void OnListColClick( wxListEvent& event ){ event.Skip(); }
+		virtual void OnListItemActivated( wxListEvent& event ){ event.Skip(); }
 		virtual void clickQuit( wxCommandEvent& event ){ event.Skip(); }
 		virtual void clickCommit( wxCommandEvent& event ){ event.Skip(); }
 		
@@ -75,6 +72,44 @@ class GUIFrame : public wxFrame
 	public:
 		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,667 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~GUIFrame();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class GUIAlarmItemModifyDialog
+///////////////////////////////////////////////////////////////////////////////
+class GUIAlarmItemModifyDialog : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxPanel* m_panel3;
+		wxStaticText* m_staticText15;
+		wxStaticText* m_staticText6;
+		wxComboBox* m_comboBox1;
+		wxStaticText* m_staticText7;
+		wxSpinCtrl* m_spinCtrlDayNumber;
+		wxStaticText* m_staticText9;
+		wxSpinCtrl* m_spinCtrlHourNumber;
+		wxStaticText* m_staticText8;
+		wxSpinCtrl* m_spinCtrlMinNumber1;
+		wxStaticText* m_staticText10;
+		wxCheckBox* m_checkBox2;
+		wxPanel* m_panel4;
+		wxStaticText* m_staticText14;
+		wxChoice* m_choice2;
+		wxStaticText* m_staticText11;
+		wxSpinCtrl* m_spinCtrlDayNumber2;
+		wxStaticText* m_staticText13;
+		wxSpinCtrl* m_spinCtrlHourNumber1;
+		wxStaticText* m_staticText12;
+		wxStaticLine* m_staticline2;
+		wxButton* m_button3;
+		wxButton* m_button4;
+	
+	public:
+		GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 551,440 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~GUIAlarmItemModifyDialog();
 	
 };
 

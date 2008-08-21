@@ -38,6 +38,9 @@ private:
 
     virtual void OnTimer(wxTimerEvent& event);
 
+    virtual void wxalarmFrame::OnListColClick( wxListEvent& event );
+    virtual void wxalarmFrame::OnListItemActivated( wxListEvent& event );
+
     DECLARE_EVENT_TABLE()
 };
 
