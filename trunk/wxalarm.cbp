@@ -64,6 +64,7 @@
 		<Unit filename="GUIFrame.cpp" />
 		<Unit filename="GUIFrame.h" />
 		<Unit filename="WxWizFrame.fbp" />
+		<Unit filename="docs\设计想法汇集.txt" />
 		<Unit filename="myWxTary.cpp" />
 		<Unit filename="myWxTary.h" />
 		<Unit filename="resource.rc">

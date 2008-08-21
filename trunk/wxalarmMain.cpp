@@ -138,6 +138,7 @@ void wxalarmFrame::OnAbout(wxCommandEvent &event)
 
 void wxalarmFrame::clickCommit(wxCommandEvent &event)
 {
+/*
     int m_time = this->m_spinCtrlTimeNumber->GetValue();
 
     wxString textEscapeTime;
@@ -154,6 +155,7 @@ void wxalarmFrame::clickCommit(wxCommandEvent &event)
     }
 
     this->Hide();
+*/
 }
 
 void wxalarmFrame::OnTimer(wxTimerEvent& event)
@@ -167,5 +169,16 @@ void wxalarmFrame::clickQuit( wxCommandEvent& event )
     Destroy();
 }
 
+void wxalarmFrame::OnListColClick( wxListEvent& event )
+{
+    wxString msg = wxbuildinfo(long_f);
+    wxMessageBox(msg, _("OnListColClick"));
+    Destroy();
+}
 
-
+void wxalarmFrame::OnListItemActivated( wxListEvent& event )
+{
+    wxString msg = wxbuildinfo(long_f);
+    wxMessageBox(msg, _("OnListItemActivated"));
+    Destroy();
+}
