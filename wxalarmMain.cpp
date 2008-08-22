@@ -178,7 +178,9 @@ void wxalarmFrame::OnListColClick( wxListEvent& event )
 
 void wxalarmFrame::OnListItemActivated( wxListEvent& event )
 {
-    wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, _("OnListItemActivated"));
-    Destroy();
+    //wxString msg = wxbuildinfo(long_f);
+    //wxMessageBox(msg, _("OnListItemActivated"));
+    //Destroy();
+    GUIAlarmItemModifyDialog* itemModifyDialog = new GUIAlarmItemModifyDialog(this);
+    itemModifyDialog->Show();
 }

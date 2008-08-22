@@ -26,10 +26,13 @@
 #include <wx/panel.h>
 #include <wx/frame.h>
 #include <wx/combobox.h>
-#include <wx/spinctrl.h>
+#include <wx/radiobox.h>
 #include <wx/checkbox.h>
-#include <wx/choice.h>
+#include <wx/spinctrl.h>
+#include <wx/datectrl.h>
+#include <wx/dateevt.h>
 #include <wx/statbox.h>
+#include <wx/choice.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -87,6 +90,9 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxStaticText* m_staticText15;
 		wxStaticText* m_staticText6;
 		wxComboBox* m_comboBox1;
+		wxRadioBox* m_radioBox1;
+		wxCheckBox* m_checkBox2;
+		wxPanel* m_panel41;
 		wxStaticText* m_staticText7;
 		wxSpinCtrl* m_spinCtrlDayNumber;
 		wxStaticText* m_staticText9;
@@ -94,7 +100,13 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxStaticText* m_staticText8;
 		wxSpinCtrl* m_spinCtrlMinNumber1;
 		wxStaticText* m_staticText10;
-		wxCheckBox* m_checkBox2;
+		wxStaticLine* m_staticline3;
+		wxStaticText* m_staticText151;
+		wxDatePickerCtrl* m_datePicker1;
+		wxSpinCtrl* m_spinCtrl6;
+		wxStaticText* m_staticText16;
+		wxSpinCtrl* m_spinCtrl7;
+		wxStaticText* m_staticText17;
 		wxPanel* m_panel4;
 		wxStaticText* m_staticText14;
 		wxChoice* m_choice2;
@@ -103,12 +115,11 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxStaticText* m_staticText13;
 		wxSpinCtrl* m_spinCtrlHourNumber1;
 		wxStaticText* m_staticText12;
-		wxStaticLine* m_staticline2;
 		wxButton* m_button3;
 		wxButton* m_button4;
 	
 	public:
-		GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 551,440 ), long style = wxDEFAULT_DIALOG_STYLE );
+		GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 647,543 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~GUIAlarmItemModifyDialog();
 	
 };
