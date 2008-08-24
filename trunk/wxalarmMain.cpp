@@ -174,7 +174,7 @@ void wxalarmFrame::OnListColClick( wxListEvent& event )
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("OnListColClick"));
-    Destroy();
+    //Destroy();
 }
 
 void wxalarmFrame::OnListItemActivated( wxListEvent& event )
