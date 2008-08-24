@@ -19,7 +19,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+GUI_frameMainWindow::GUI_frameMainWindow( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
@@ -110,28 +110,28 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Layout();
 	
 	// Connect Events
-	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
-	this->Connect( menuFileQuit->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnQuit ) );
-	this->Connect( menuHelpAbout->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnAbout ) );
-	m_listCtrl->Connect( wxEVT_COMMAND_LIST_COL_CLICK, wxListEventHandler( GUIFrame::OnListColClick ), NULL, this );
-	m_listCtrl->Connect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( GUIFrame::OnListItemActivated ), NULL, this );
-	m_buttonQuit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::clickQuit ), NULL, this );
-	m_buttonCommit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::clickCommit ), NULL, this );
+	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUI_frameMainWindow::OnClose ) );
+	this->Connect( menuFileQuit->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUI_frameMainWindow::OnQuit ) );
+	this->Connect( menuHelpAbout->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUI_frameMainWindow::OnAbout ) );
+	m_listCtrl->Connect( wxEVT_COMMAND_LIST_COL_CLICK, wxListEventHandler( GUI_frameMainWindow::OnListColClick ), NULL, this );
+	m_listCtrl->Connect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( GUI_frameMainWindow::OnListItemActivated ), NULL, this );
+	m_buttonQuit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUI_frameMainWindow::clickQuit ), NULL, this );
+	m_buttonCommit->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUI_frameMainWindow::clickCommit ), NULL, this );
 }
 
-GUIFrame::~GUIFrame()
+GUI_frameMainWindow::~GUI_frameMainWindow()
 {
 	// Disconnect Events
-	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnQuit ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnAbout ) );
-	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_COL_CLICK, wxListEventHandler( GUIFrame::OnListColClick ), NULL, this );
-	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( GUIFrame::OnListItemActivated ), NULL, this );
-	m_buttonQuit->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::clickQuit ), NULL, this );
-	m_buttonCommit->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::clickCommit ), NULL, this );
+	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUI_frameMainWindow::OnClose ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUI_frameMainWindow::OnQuit ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUI_frameMainWindow::OnAbout ) );
+	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_COL_CLICK, wxListEventHandler( GUI_frameMainWindow::OnListColClick ), NULL, this );
+	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( GUI_frameMainWindow::OnListItemActivated ), NULL, this );
+	m_buttonQuit->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUI_frameMainWindow::clickQuit ), NULL, this );
+	m_buttonCommit->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUI_frameMainWindow::clickCommit ), NULL, this );
 }
 
-GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+GUI_dialogAlarmItemModify::GUI_dialogAlarmItemModify( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
@@ -171,7 +171,7 @@ GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID
 	wxString m_radioBox1Choices[] = { wxT("按到期时间"), wxT("按剩余时间") };
 	int m_radioBox1NChoices = sizeof( m_radioBox1Choices ) / sizeof( wxString );
 	m_radioBox1 = new wxRadioBox( m_panel3, wxID_ANY, wxT("闹钟时间设置模式"), wxDefaultPosition, wxDefaultSize, m_radioBox1NChoices, m_radioBox1Choices, 1, wxRA_SPECIFY_ROWS );
-	m_radioBox1->SetSelection( 0 );
+	m_radioBox1->SetSelection( 1 );
 	bSizer221->Add( m_radioBox1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_checkBox2 = new wxCheckBox( m_panel3, wxID_ANY, wxT("开启自动循环"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -183,93 +183,94 @@ GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID
 	wxStaticBoxSizer* sbSizer21;
 	sbSizer21 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, wxT("闹钟时间设置") ), wxVERTICAL );
 	
-	m_panel41 = new wxPanel( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	wxBoxSizer* bSizer9;
-	bSizer9 = new wxBoxSizer( wxVERTICAL );
-	
+	m_panelAlarmTimeWait = new wxPanel( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer16;
 	bSizer16 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText7 = new wxStaticText( m_panel41, wxID_ANY, wxT("等待时间："), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7 = new wxStaticText( m_panelAlarmTimeWait, wxID_ANY, wxT("等待时间："), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
 	bSizer16->Add( m_staticText7, 0, wxALL, 5 );
 	
-	m_spinCtrlDayNumber = new wxSpinCtrl( m_panel41, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
+	m_spinCtrlDayNumber = new wxSpinCtrl( m_panelAlarmTimeWait, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
 	bSizer16->Add( m_spinCtrlDayNumber, 0, wxALL, 5 );
 	
-	m_staticText9 = new wxStaticText( m_panel41, wxID_ANY, wxT("天"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText9 = new wxStaticText( m_panelAlarmTimeWait, wxID_ANY, wxT("天"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText9->Wrap( -1 );
 	bSizer16->Add( m_staticText9, 0, wxALL, 5 );
 	
-	m_spinCtrlHourNumber = new wxSpinCtrl( m_panel41, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 23, 0 );
+	m_spinCtrlHourNumber = new wxSpinCtrl( m_panelAlarmTimeWait, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 23, 0 );
 	bSizer16->Add( m_spinCtrlHourNumber, 0, wxALL, 5 );
 	
-	m_staticText8 = new wxStaticText( m_panel41, wxID_ANY, wxT("小时"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8 = new wxStaticText( m_panelAlarmTimeWait, wxID_ANY, wxT("小时"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText8->Wrap( -1 );
 	bSizer16->Add( m_staticText8, 0, wxALL, 5 );
 	
-	m_spinCtrlMinNumber1 = new wxSpinCtrl( m_panel41, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 59, 0 );
+	m_spinCtrlMinNumber1 = new wxSpinCtrl( m_panelAlarmTimeWait, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer16->Add( m_spinCtrlMinNumber1, 0, wxALL, 5 );
 	
-	m_staticText10 = new wxStaticText( m_panel41, wxID_ANY, wxT("分钟"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText10 = new wxStaticText( m_panelAlarmTimeWait, wxID_ANY, wxT("分钟"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText10->Wrap( -1 );
 	bSizer16->Add( m_staticText10, 0, wxALL, 5 );
 	
-	bSizer9->Add( bSizer16, 0, wxEXPAND, 5 );
+	m_panelAlarmTimeWait->SetSizer( bSizer16 );
+	m_panelAlarmTimeWait->Layout();
+	bSizer16->Fit( m_panelAlarmTimeWait );
+	sbSizer21->Add( m_panelAlarmTimeWait, 1, wxEXPAND | wxALL, 5 );
 	
-	m_staticline3 = new wxStaticLine( m_panel41, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
-	bSizer9->Add( m_staticline3, 0, wxEXPAND | wxALL, 5 );
+	m_staticline3 = new wxStaticLine( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	sbSizer21->Add( m_staticline3, 0, wxEXPAND | wxALL, 5 );
 	
+	m_panelAlarmTime = new wxPanel( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer231;
 	bSizer231 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText151 = new wxStaticText( m_panel41, wxID_ANY, wxT("响铃时间："), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText151 = new wxStaticText( m_panelAlarmTime, wxID_ANY, wxT("响铃时间："), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText151->Wrap( -1 );
 	bSizer231->Add( m_staticText151, 0, wxALL, 5 );
 	
-	m_datePicker1 = new wxDatePickerCtrl( m_panel41, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_DROPDOWN );
+	m_datePicker1 = new wxDatePickerCtrl( m_panelAlarmTime, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_DROPDOWN );
 	bSizer231->Add( m_datePicker1, 0, wxALL, 5 );
 	
-	m_spinCtrl6 = new wxSpinCtrl( m_panel41, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS|wxSP_WRAP, 0, 23, 0 );
+	m_spinCtrl6 = new wxSpinCtrl( m_panelAlarmTime, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS|wxSP_WRAP, 0, 23, 0 );
 	bSizer231->Add( m_spinCtrl6, 0, wxALL, 5 );
 	
-	m_staticText16 = new wxStaticText( m_panel41, wxID_ANY, wxT("点"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText16 = new wxStaticText( m_panelAlarmTime, wxID_ANY, wxT("点"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer231->Add( m_staticText16, 0, wxALL, 5 );
 	
-	m_spinCtrl7 = new wxSpinCtrl( m_panel41, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS|wxSP_WRAP, 0, 59, 0 );
+	m_spinCtrl7 = new wxSpinCtrl( m_panelAlarmTime, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS|wxSP_WRAP, 0, 59, 0 );
 	bSizer231->Add( m_spinCtrl7, 0, wxALL, 5 );
 	
-	m_staticText17 = new wxStaticText( m_panel41, wxID_ANY, wxT("分"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText17 = new wxStaticText( m_panelAlarmTime, wxID_ANY, wxT("分"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText17->Wrap( -1 );
 	bSizer231->Add( m_staticText17, 0, wxALL, 5 );
 	
-	bSizer9->Add( bSizer231, 1, wxEXPAND, 5 );
-	
-	m_panel41->SetSizer( bSizer9 );
-	m_panel41->Layout();
-	bSizer9->Fit( m_panel41 );
-	sbSizer21->Add( m_panel41, 0, wxEXPAND | wxALL, 5 );
+	m_panelAlarmTime->SetSizer( bSizer231 );
+	m_panelAlarmTime->Layout();
+	bSizer231->Fit( m_panelAlarmTime );
+	sbSizer21->Add( m_panelAlarmTime, 1, wxEXPAND | wxALL, 5 );
 	
 	bSizer24->Add( sbSizer21, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer2;
 	sbSizer2 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, wxT("自动循环设置") ), wxVERTICAL );
 	
-	m_panel4 = new wxPanel( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	m_panelAutoCircle = new wxPanel( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer27;
 	bSizer27 = new wxBoxSizer( wxVERTICAL );
 	
 	wxBoxSizer* bSizer28;
 	bSizer28 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText14 = new wxStaticText( m_panel4, wxID_ANY, wxT("自动循环模板"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText14 = new wxStaticText( m_panelAutoCircle, wxID_ANY, wxT("自动循环模板"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText14->Wrap( -1 );
 	bSizer28->Add( m_staticText14, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString m_choice2Choices;
-	m_choice2 = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice2Choices, 0 );
+	m_choice2 = new wxChoice( m_panelAutoCircle, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice2Choices, 0 );
 	m_choice2->SetSelection( 0 );
+	m_choice2->Enable( false );
+	
 	bSizer28->Add( m_choice2, 1, wxALL|wxEXPAND, 5 );
 	
 	bSizer27->Add( bSizer28, 1, wxEXPAND, 5 );
@@ -277,30 +278,34 @@ GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID
 	wxBoxSizer* bSizer23;
 	bSizer23 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText11 = new wxStaticText( m_panel4, wxID_ANY, wxT("循环周期"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText11 = new wxStaticText( m_panelAutoCircle, wxID_ANY, wxT("循环周期"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText11->Wrap( -1 );
 	bSizer23->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_spinCtrlDayNumber2 = new wxSpinCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
+	m_spinCtrlDayNumber2 = new wxSpinCtrl( m_panelAutoCircle, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
+	m_spinCtrlDayNumber2->Enable( false );
+	
 	bSizer23->Add( m_spinCtrlDayNumber2, 0, wxALL, 5 );
 	
-	m_staticText13 = new wxStaticText( m_panel4, wxID_ANY, wxT("天"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText13 = new wxStaticText( m_panelAutoCircle, wxID_ANY, wxT("天"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText13->Wrap( -1 );
 	bSizer23->Add( m_staticText13, 0, wxALL, 5 );
 	
-	m_spinCtrlHourNumber1 = new wxSpinCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
+	m_spinCtrlHourNumber1 = new wxSpinCtrl( m_panelAutoCircle, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 99, 0 );
+	m_spinCtrlHourNumber1->Enable( false );
+	
 	bSizer23->Add( m_spinCtrlHourNumber1, 0, wxALL, 5 );
 	
-	m_staticText12 = new wxStaticText( m_panel4, wxID_ANY, wxT("小时"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText12 = new wxStaticText( m_panelAutoCircle, wxID_ANY, wxT("小时"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText12->Wrap( -1 );
 	bSizer23->Add( m_staticText12, 0, wxALL, 5 );
 	
 	bSizer27->Add( bSizer23, 1, wxEXPAND, 5 );
 	
-	m_panel4->SetSizer( bSizer27 );
-	m_panel4->Layout();
-	bSizer27->Fit( m_panel4 );
-	sbSizer2->Add( m_panel4, 1, wxEXPAND | wxALL, 5 );
+	m_panelAutoCircle->SetSizer( bSizer27 );
+	m_panelAutoCircle->Layout();
+	bSizer27->Fit( m_panelAutoCircle );
+	sbSizer2->Add( m_panelAutoCircle, 1, wxEXPAND | wxALL, 5 );
 	
 	bSizer24->Add( sbSizer2, 0, wxEXPAND, 5 );
 	
@@ -310,10 +315,10 @@ GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID
 	wxBoxSizer* bSizer22;
 	bSizer22 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_button3 = new wxButton( m_panel3, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button3 = new wxButton( m_panel3, wxID_ANY, wxT("确认"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer22->Add( m_button3, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_button4 = new wxButton( m_panel3, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button4 = new wxButton( m_panel3, wxID_ANY, wxT("取消"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer22->Add( m_button4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	bSizer17->Add( bSizer22, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -329,6 +334,6 @@ GUIAlarmItemModifyDialog::GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID
 	this->Layout();
 }
 
-GUIAlarmItemModifyDialog::~GUIAlarmItemModifyDialog()
+GUI_dialogAlarmItemModify::~GUI_dialogAlarmItemModify()
 {
 }
