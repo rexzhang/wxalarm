@@ -17,6 +17,7 @@
 
 #include "wxalarmMain.h"
 
+#include "dialogAlarmItemModify.h"
 
 //helper functions
 enum wxbuildinfoformat
@@ -53,7 +54,7 @@ BEGIN_EVENT_TABLE(wxalarmFrame, wxFrame)
 END_EVENT_TABLE()
 
 wxalarmFrame::wxalarmFrame(wxFrame *frame)
-        : GUIFrame(frame)
+        : GUI_frameMainWindow(frame)
 {
     /*
     #if wxUSE_STATUSBAR
@@ -181,6 +182,6 @@ void wxalarmFrame::OnListItemActivated( wxListEvent& event )
     //wxString msg = wxbuildinfo(long_f);
     //wxMessageBox(msg, _("OnListItemActivated"));
     //Destroy();
-    GUIAlarmItemModifyDialog* itemModifyDialog = new GUIAlarmItemModifyDialog(this);
+    dialogAlarmItemModify* itemModifyDialog = new dialogAlarmItemModify(this);
     itemModifyDialog->Show();
 }

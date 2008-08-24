@@ -41,9 +41,9 @@
 #define idMenuAbout 1001
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class GUIFrame
+/// Class GUI_frameMainWindow
 ///////////////////////////////////////////////////////////////////////////////
-class GUIFrame : public wxFrame 
+class GUI_frameMainWindow : public wxFrame 
 {
 	private:
 	
@@ -73,15 +73,15 @@ class GUIFrame : public wxFrame
 		
 	
 	public:
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,667 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		~GUIFrame();
+		GUI_frameMainWindow( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxAlarm"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 522,667 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		~GUI_frameMainWindow();
 	
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class GUIAlarmItemModifyDialog
+/// Class GUI_dialogAlarmItemModify
 ///////////////////////////////////////////////////////////////////////////////
-class GUIAlarmItemModifyDialog : public wxDialog 
+class GUI_dialogAlarmItemModify : public wxDialog 
 {
 	private:
 	
@@ -92,7 +92,7 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxComboBox* m_comboBox1;
 		wxRadioBox* m_radioBox1;
 		wxCheckBox* m_checkBox2;
-		wxPanel* m_panel41;
+		wxPanel* m_panelAlarmTimeWait;
 		wxStaticText* m_staticText7;
 		wxSpinCtrl* m_spinCtrlDayNumber;
 		wxStaticText* m_staticText9;
@@ -101,13 +101,14 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxSpinCtrl* m_spinCtrlMinNumber1;
 		wxStaticText* m_staticText10;
 		wxStaticLine* m_staticline3;
+		wxPanel* m_panelAlarmTime;
 		wxStaticText* m_staticText151;
 		wxDatePickerCtrl* m_datePicker1;
 		wxSpinCtrl* m_spinCtrl6;
 		wxStaticText* m_staticText16;
 		wxSpinCtrl* m_spinCtrl7;
 		wxStaticText* m_staticText17;
-		wxPanel* m_panel4;
+		wxPanel* m_panelAutoCircle;
 		wxStaticText* m_staticText14;
 		wxChoice* m_choice2;
 		wxStaticText* m_staticText11;
@@ -119,8 +120,8 @@ class GUIAlarmItemModifyDialog : public wxDialog
 		wxButton* m_button4;
 	
 	public:
-		GUIAlarmItemModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 647,543 ), long style = wxDEFAULT_DIALOG_STYLE );
-		~GUIAlarmItemModifyDialog();
+		GUI_dialogAlarmItemModify( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 647,543 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~GUI_dialogAlarmItemModify();
 	
 };
 

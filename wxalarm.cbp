@@ -64,6 +64,8 @@
 		<Unit filename="GUIFrame.cpp" />
 		<Unit filename="GUIFrame.h" />
 		<Unit filename="WxWizFrame.fbp" />
+		<Unit filename="dialogAlarmItemModify.cpp" />
+		<Unit filename="dialogAlarmItemModify.h" />
 		<Unit filename="docs\设计想法汇集.txt" />
 		<Unit filename="myWxTary.cpp" />
 		<Unit filename="myWxTary.h" />

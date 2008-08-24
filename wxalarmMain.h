@@ -18,7 +18,7 @@
 
 #include "GUIFrame.h"
 
-class wxalarmFrame: public GUIFrame
+class wxalarmFrame: public GUI_frameMainWindow
 {
 public:
     wxalarmFrame(wxFrame *frame);
