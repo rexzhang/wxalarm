@@ -18,6 +18,8 @@
 
 #include "GUIFrame.h"
 
+#include "ticpp/tinyxml.h"
+
 class wxalarmFrame: public GUI_frameMainWindow
 {
 public:
