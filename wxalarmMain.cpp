@@ -111,6 +111,16 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     //m_listCtrl->SetColumnWidth(3, wxLIST_AUTOSIZE );
     //m_listCtrl->SetColumnWidth(4, wxLIST_AUTOSIZE );
 
+
+	TiXmlDocument doc;
+	TiXmlDeclaration * decl = new TiXmlDeclaration( "1.0", "", "" );
+	TiXmlElement * element = new TiXmlElement( "Hello" );
+	TiXmlText * text = new TiXmlText( "World" );
+	element->LinkEndChild( text );
+	doc.LinkEndChild( decl );
+	doc.LinkEndChild( element );
+	doc.SaveFile( "test.xml" );
+
 }
 
 wxalarmFrame::~wxalarmFrame()
