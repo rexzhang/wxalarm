@@ -19,6 +19,9 @@
 
 #include "dialogAlarmItemModify.h"
 
+#include <list>
+//using std::list;
+
 //helper functions
 enum wxbuildinfoformat
 {
@@ -120,6 +123,10 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
 	doc.LinkEndChild( decl );
 	doc.LinkEndChild( element );
 	doc.SaveFile( "test.xml" );
+
+	//////////////////////
+	std::list<alarmItem> alarmItemList;
+
 
 }
 
