@@ -19,10 +19,8 @@
 
 #include "dialogAlarmItemModify.h"
 
-#include <list>
-//using std::list;
-
 //helper functions
+
 enum wxbuildinfoformat
 {
     short_f, long_f
@@ -115,18 +113,6 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     //m_listCtrl->SetColumnWidth(4, wxLIST_AUTOSIZE );
 
 
-	TiXmlDocument doc;
-	TiXmlDeclaration * decl = new TiXmlDeclaration( "1.0", "", "" );
-	TiXmlElement * element = new TiXmlElement( "Hello" );
-	TiXmlText * text = new TiXmlText( "World" );
-	element->LinkEndChild( text );
-	doc.LinkEndChild( decl );
-	doc.LinkEndChild( element );
-	doc.SaveFile( "test.xml" );
-
-	//////////////////////
-	std::list<alarmItem> alarmItemList;
-
 
 }
 
@@ -156,24 +142,24 @@ void wxalarmFrame::OnAbout(wxCommandEvent &event)
 
 void wxalarmFrame::clickCommit(wxCommandEvent &event)
 {
-/*
-    int m_time = this->m_spinCtrlTimeNumber->GetValue();
+    /*
+        int m_time = this->m_spinCtrlTimeNumber->GetValue();
 
-    wxString textEscapeTime;
+        wxString textEscapeTime;
 
-    textEscapeTime.Printf(_("%i"), m_time);
+        textEscapeTime.Printf(_("%i"), m_time);
 
-    this->m_staticTextEscapeTime->SetLabel( textEscapeTime );
+        this->m_staticTextEscapeTime->SetLabel( textEscapeTime );
 
-    if ( !m_timer->Start( m_time * 60 * 1000, wxTIMER_ONE_SHOT ) )
-        //if( !m_timer.Start(m_time * 1000) )
-    {
-        wxString msg = wxbuildinfo(long_f);
-        wxMessageBox(msg, _("if( !m_timer->Start(m_time * 100) )"));
-    }
+        if ( !m_timer->Start( m_time * 60 * 1000, wxTIMER_ONE_SHOT ) )
+            //if( !m_timer.Start(m_time * 1000) )
+        {
+            wxString msg = wxbuildinfo(long_f);
+            wxMessageBox(msg, _("if( !m_timer->Start(m_time * 100) )"));
+        }
 
-    this->Hide();
-*/
+        this->Hide();
+    */
 }
 
 void wxalarmFrame::OnTimer(wxTimerEvent& event)

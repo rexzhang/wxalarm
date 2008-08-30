@@ -18,11 +18,6 @@
 
 #include "GUIFrame.h"
 
-#include "ticpp/tinyxml.h"
-
-#include <string>
-using std::string;
-
 class wxalarmFrame: public GUI_frameMainWindow
 {
 public:
@@ -49,13 +44,5 @@ private:
     DECLARE_EVENT_TABLE()
 };
 
-class alarmItem
-{
-    string remainderTime;//剩余时间
-    string description;//提醒内容
-    bool repeat;//自动循环
-    string alarmTime;
-    string memo;//备注
-};
 
 #endif // WXALARMMAIN_H
