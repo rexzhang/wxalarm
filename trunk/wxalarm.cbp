@@ -68,14 +68,18 @@
 		<Unit filename="GUIFrame.cpp" />
 		<Unit filename="GUIFrame.h" />
 		<Unit filename="WxWizFrame.fbp" />
+		<Unit filename="alarmItem.cpp" />
+		<Unit filename="alarmItem.h" />
+		<Unit filename="alarmList.cpp" />
+		<Unit filename="alarmList.h" />
 		<Unit filename="dialogAlarmItemModify.cpp" />
 		<Unit filename="dialogAlarmItemModify.h" />
-		<Unit filename="docs\设计想法汇集.txt" />
 		<Unit filename="myWxTary.cpp" />
 		<Unit filename="myWxTary.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="wxAlarm.mm" />
 		<Unit filename="wx_pch.h">
 			<Option compile="1" />
 			<Option weight="0" />
