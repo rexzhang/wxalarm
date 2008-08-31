@@ -20,8 +20,11 @@ bool alarmList::SaveList()
     TiXmlDocument xmlConfig;
 
     TiXmlDeclaration *pXMLDeclaration = new TiXmlDeclaration( "1.0", "UTF-8", "" );//定义XML文件格式
-    TiXmlElement * pXMLAppNameVersion = new TiXmlElement( "wxAlarm" );
-    pXMLAppNameVersion->SetAttribute("xmlConfigVersion", "1.0");//定义自定义的文件格式版本
+    TiXmlElement * pXMLAppName = new TiXmlElement( "wxAlarm" );
+    TiXmlElement * pXMLFileVersion = new TiXmlElement( "FileVersion" );//定义自定义的文件格式版本
+    pXMLFileVersion->SetAttribute("major", 1);
+    pXMLFileVersion->SetAttribute("minor", 0);
+
 
     TiXmlElement * pXMLAlarmList = new TiXmlElement( "alarmList" );
     TiXmlElement * pXMLAlarmItem = new TiXmlElement( "alarmItem" );
@@ -46,8 +49,9 @@ bool alarmList::SaveList()
 
     //连接生成完整的XML配置文件树
     xmlConfig.LinkEndChild( pXMLDeclaration );
-    xmlConfig.LinkEndChild( pXMLAppNameVersion );
-    pXMLAppNameVersion->LinkEndChild( pXMLAlarmList );
+    xmlConfig.LinkEndChild( pXMLAppName );
+    pXMLAppName->LinkEndChild( pXMLFileVersion );
+    pXMLAppName->LinkEndChild( pXMLAlarmList );
     pXMLAlarmList->LinkEndChild( pXMLAlarmItem );
 
     //保存XML配置文件

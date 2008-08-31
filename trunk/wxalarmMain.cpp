@@ -118,7 +118,8 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
 
     alarmList *myAlarmList;
     myAlarmList = new alarmList;
-    myAlarmList->ReloadList();
+    myAlarmList->SaveList();
+    //myAlarmList->ReloadList();
 
 }
 
