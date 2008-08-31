@@ -17,7 +17,11 @@
 
 #include "wxalarmMain.h"
 
+//界面类
 #include "dialogAlarmItemModify.h"
+
+//程序运行支撑类
+#include "alarmList.h"
 
 //helper functions
 
@@ -112,7 +116,9 @@ wxalarmFrame::wxalarmFrame(wxFrame *frame)
     //m_listCtrl->SetColumnWidth(3, wxLIST_AUTOSIZE );
     //m_listCtrl->SetColumnWidth(4, wxLIST_AUTOSIZE );
 
-
+    alarmList *myAlarmList;
+    myAlarmList = new alarmList;
+    myAlarmList->ReloadList();
 
 }
 
