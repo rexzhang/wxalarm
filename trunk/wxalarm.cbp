@@ -58,6 +58,7 @@
 			<Add option="-DwxUSE_UNICODE" />
 			<Add option="-DWX_PRECOMP" />
 			<Add option="-DTIXML_USE_TICPP" />
+			<Add option="-DTIXML_USE_STL" />
 			<Add directory="$(#wx)\include" />
 			<Add directory="$(#wx)\contrib\include" />
 			<Add directory="ticpp" />
